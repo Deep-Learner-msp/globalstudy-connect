@@ -1,4 +1,7 @@
 
+import { motion } from "framer-motion";
+import { Star } from "lucide-react";
+
 const successStories = [
   {
     name: "Chaitanya",
@@ -64,22 +67,29 @@ const SuccessStoriesSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-          {successStories.slice(0, 8).map((story, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+          {successStories.map((story, index) => (
             <div 
               key={index} 
-              className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-md animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="p-5">
-                <h3 className="text-lg font-semibold mb-1">{story.name}</h3>
-                <div className="flex items-center text-sm text-gray-600 mb-3">
-                  <span className="mr-2">{story.university}</span>
-                  <span className="inline-block h-1 w-1 rounded-full bg-gray-400"></span>
-                  <span className="ml-2">{story.country}</span>
+              <div className="flex items-center mb-4">
+                <div className="bg-gradient-to-r from-brand-blue to-brand-orange text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg">
+                  {story.name.charAt(0)}
                 </div>
-                <p className="text-gray-600 text-sm">{story.testimonial}</p>
+                <div className="ml-3">
+                  <h3 className="font-semibold text-lg">{story.name}</h3>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <span>{story.university}, {story.country}</span>
+                  </div>
+                </div>
               </div>
+              <div className="flex mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={16} className="text-yellow-400 fill-yellow-400" />
+                ))}
+              </div>
+              <p className="text-gray-700 italic">{story.testimonial}</p>
             </div>
           ))}
         </div>

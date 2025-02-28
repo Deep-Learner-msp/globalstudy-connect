@@ -4,11 +4,11 @@ import { ArrowRight } from "lucide-react";
 
 const CTASection = () => {
   const handleConsultation = () => {
-    window.open(`https://wa.me/919392206641?text=I'm interested in a consultation for studying abroad`, '_blank');
+    window.open(`https://api.whatsapp.com/send/?phone=919392206641&text=I'm interested in a consultation for studying abroad&type=phone_number&app_absent=0`, '_blank');
   };
   
   const handleLearnMore = () => {
-    window.open(`https://wa.me/919392206641?text=I'd like to learn more about your overseas education services`, '_blank');
+    window.open(`https://api.whatsapp.com/send/?phone=919392206641&text=I'd like to learn more about your overseas education services&type=phone_number&app_absent=0`, '_blank');
   };
 
   return (

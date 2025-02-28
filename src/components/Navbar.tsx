@@ -17,7 +17,7 @@ export const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "/" },
+    { name: "Home", href: "#" },
     { name: "Countries", href: "#countries" },
     { name: "Services", href: "#services" },
     { name: "Success Stories", href: "#success-stories" },
@@ -26,7 +26,7 @@ export const Navbar = () => {
   ];
 
   const handleConsultation = () => {
-    window.open(`https://wa.me/919392206641?text=I'm interested in a consultation for studying abroad`, '_blank');
+    window.open(`https://api.whatsapp.com/send/?phone=919392206641&text=I'm interested in a consultation for studying abroad&type=phone_number&app_absent=0`, '_blank');
   };
 
   return (
