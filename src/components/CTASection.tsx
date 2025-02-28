@@ -3,6 +3,10 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 const CTASection = () => {
+  const handleConsultation = () => {
+    window.open(`https://wa.me/919392206641`, '_blank');
+  };
+
   return (
     <section className="py-16 md:py-20 bg-gradient-to-r from-brand-blue to-[#0A4DA3] text-white">
       <div className="section-container">
@@ -18,6 +22,7 @@ const CTASection = () => {
               variant="default" 
               size="xl" 
               className="bg-white text-brand-blue hover:bg-gray-100 hover:text-brand-blue rounded-full group"
+              onClick={handleConsultation}
             >
               Get Free Consultation
               <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />

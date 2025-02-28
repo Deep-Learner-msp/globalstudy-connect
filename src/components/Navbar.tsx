@@ -36,12 +36,13 @@ export const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <Link to="/" className="flex-shrink-0">
+            <Link to="/" className="flex-shrink-0 flex items-center gap-2">
               <img
                 src="/lovable-uploads/77987804-27ce-4be4-b332-ad4348b36a7b.png"
-                alt="Career-Guide Overseas Consultant"
-                className="h-12 w-auto object-contain"
+                alt="Career-Guide Logo"
+                className="h-10 w-auto object-contain"
               />
+              <span className="text-lg font-semibold text-brand-blue">Career-Guide Overseas</span>
             </Link>
           </div>
 
@@ -62,7 +63,11 @@ export const Navbar = () => {
               <Phone size={16} />
               <span>+91 9392206641</span>
             </a>
-            <Button variant="gradient" className="rounded-full">
+            <Button 
+              variant="gradient" 
+              className="rounded-full"
+              onClick={() => window.open(`https://wa.me/919392206641`, '_blank')}
+            >
               Get Free Consultation
             </Button>
           </div>
@@ -102,7 +107,11 @@ export const Navbar = () => {
                 <Phone size={16} />
                 <span>+91 9392206641</span>
               </a>
-              <Button variant="gradient" className="w-full rounded-full">
+              <Button 
+                variant="gradient" 
+                className="w-full rounded-full"
+                onClick={() => window.open(`https://wa.me/919392206641`, '_blank')}
+              >
                 Get Free Consultation
               </Button>
             </div>
