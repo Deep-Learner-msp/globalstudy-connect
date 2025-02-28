@@ -25,6 +25,10 @@ export const Navbar = () => {
     { name: "Contact", href: "#contact" },
   ];
 
+  const handleConsultation = () => {
+    window.open(`https://wa.me/919392206641?text=I'm interested in a consultation for studying abroad`, '_blank');
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -37,11 +41,13 @@ export const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0 flex items-center gap-2">
-              <img
-                src="/lovable-uploads/77987804-27ce-4be4-b332-ad4348b36a7b.png"
-                alt="Career-Guide Logo"
-                className="h-10 w-auto object-contain"
-              />
+              <div className="relative h-10 w-10">
+                <img
+                  src="/lovable-uploads/77987804-27ce-4be4-b332-ad4348b36a7b.png"
+                  alt="Career-Guide Logo"
+                  className="h-10 w-10 object-contain rounded-full bg-gradient-to-r from-brand-blue to-[#0A4DA3] p-0.5"
+                />
+              </div>
               <span className="text-lg font-semibold text-brand-blue">Career-Guide Overseas</span>
             </Link>
           </div>
@@ -66,7 +72,7 @@ export const Navbar = () => {
             <Button 
               variant="gradient" 
               className="rounded-full"
-              onClick={() => window.open(`https://wa.me/919392206641`, '_blank')}
+              onClick={handleConsultation}
             >
               Get Free Consultation
             </Button>
@@ -110,7 +116,7 @@ export const Navbar = () => {
               <Button 
                 variant="gradient" 
                 className="w-full rounded-full"
-                onClick={() => window.open(`https://wa.me/919392206641`, '_blank')}
+                onClick={handleConsultation}
               >
                 Get Free Consultation
               </Button>

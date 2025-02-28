@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 const CTASection = () => {
   const handleConsultation = () => {
-    window.open(`https://wa.me/919392206641`, '_blank');
+    window.open(`https://wa.me/919392206641?text=I'm interested in a consultation for studying abroad`, '_blank');
   };
 
   return (
