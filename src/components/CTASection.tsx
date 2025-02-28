@@ -6,6 +6,10 @@ const CTASection = () => {
   const handleConsultation = () => {
     window.open(`https://wa.me/919392206641?text=I'm interested in a consultation for studying abroad`, '_blank');
   };
+  
+  const handleLearnMore = () => {
+    window.open(`https://wa.me/919392206641?text=I'd like to learn more about your overseas education services`, '_blank');
+  };
 
   return (
     <section className="py-16 md:py-20 bg-gradient-to-r from-brand-blue to-[#0A4DA3] text-white">
@@ -31,6 +35,7 @@ const CTASection = () => {
               variant="outline"
               size="xl"
               className="bg-transparent border-white text-white hover:bg-white/10 hover:text-white rounded-full"
+              onClick={handleLearnMore}
             >
               Learn More
             </Button>
