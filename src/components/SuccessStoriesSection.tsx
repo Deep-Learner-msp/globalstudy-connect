@@ -125,14 +125,7 @@ const SuccessStoriesSection = () => {
     setIsScrolling(false);
   };
 
-  // Auto scroll effect - only for testimonials
-  useEffect(() => {
-    const interval = setInterval(() => {
-      handleNext();
-    }, 8000); // Auto slide every 8 seconds
-    
-    return () => clearInterval(interval);
-  }, [activeIndex]);
+  // Removed auto scroll effect
 
   return (
     <section id="success-stories" className="py-10 md:py-16 bg-gray-50">
