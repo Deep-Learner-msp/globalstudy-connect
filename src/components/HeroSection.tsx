@@ -15,13 +15,13 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative py-16 md:py-24 overflow-hidden">
+    <section className="relative py-10 md:py-16 overflow-hidden">
       <div className="absolute inset-0 hero-gradient -z-10"></div>
       
       <div className="section-container">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8 animate-fade-in-left">
-            <div className="space-y-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div className="space-y-6">
+            <div className="space-y-3">
               <div className="inline-flex items-center rounded-full bg-brand-blue/10 px-3 py-1 text-sm font-medium text-brand-blue">
                 <span>Your Gateway to Global Education</span>
               </div>
@@ -71,7 +71,7 @@ const HeroSection = () => {
             </div>
           </div>
           
-          <div className="relative animate-fade-in-right">
+          <div className="relative">
             <div className="relative z-10 aspect-video rounded-2xl overflow-hidden shadow-xl">
               <img 
                 src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" 
@@ -80,10 +80,10 @@ const HeroSection = () => {
               />
             </div>
             
-            <div className="absolute -bottom-6 -right-6 z-0 animate-float hidden md:block">
+            <div className="absolute -bottom-6 -right-6 z-0 hidden md:block">
               <div className="w-32 h-32 bg-brand-orange rounded-lg opacity-40 blur-2xl"></div>
             </div>
-            <div className="absolute -top-6 -left-6 z-0 animate-float hidden md:block">
+            <div className="absolute -top-6 -left-6 z-0 hidden md:block">
               <div className="w-32 h-32 bg-brand-blue rounded-lg opacity-40 blur-2xl"></div>
             </div>
           </div>

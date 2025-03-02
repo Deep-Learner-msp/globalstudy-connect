@@ -125,7 +125,7 @@ const SuccessStoriesSection = () => {
     setIsScrolling(false);
   };
 
-  // Auto scroll effect
+  // Auto scroll effect - only for testimonials
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
@@ -135,19 +135,19 @@ const SuccessStoriesSection = () => {
   }, [activeIndex]);
 
   return (
-    <section id="success-stories" className="py-16 md:py-24 bg-gray-50">
-      <div className="section-container">
+    <section id="success-stories" className="py-10 md:py-16 bg-gray-50">
+      <div className="section-container py-8 md:py-12">
         <div className="text-center">
           <div className="inline-flex items-center rounded-full bg-brand-blue/10 px-3 py-1 mb-4 text-sm font-medium text-brand-blue">
             <span>Success Stories</span>
           </div>
           <h2 className="section-title">Hear from Our Students</h2>
-          <p className="section-subtitle max-w-3xl mx-auto">
+          <p className="section-subtitle max-w-3xl mx-auto mb-8">
             Discover how Career-Guide has helped students achieve their international education dreams.
           </p>
         </div>
 
-        <div className="mt-12 relative">
+        <div className="mt-8 relative">
           {/* Desktop Slider Controls */}
           <div className="absolute top-1/2 -left-4 -translate-y-1/2 z-10 hidden md:block">
             <Button 

@@ -123,3 +123,43 @@
   border-radius: 50%;
   z-index: -1;
 }
+
+/* Reduced spacing between sections */
+.section-container {
+  max-width: 7xl;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.py-16 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.py-24 {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: var(--muted-foreground);
+  margin-bottom: 2rem;
+}
+
+.mb-12 {
+  margin-bottom: 2rem;
+}
+
+.mt-12 {
+  margin-top: 2rem;
+}

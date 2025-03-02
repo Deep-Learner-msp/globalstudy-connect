@@ -60,10 +60,10 @@ const ServicesSection = () => {
   };
 
   return (
-    <section id="services" className="py-16 md:py-24">
+    <section id="services" className="py-10 md:py-16">
       <div className="section-container">
         <div className="text-center">
-          <div className="inline-flex items-center rounded-full bg-brand-blue/10 px-3 py-1 mb-4 text-sm font-medium text-brand-blue">
+          <div className="inline-flex items-center rounded-full bg-brand-blue/10 px-3 py-1 mb-3 text-sm font-medium text-brand-blue">
             <span>Our Services</span>
           </div>
           <h2 className="section-title">Comprehensive Study Abroad Services</h2>
@@ -72,11 +72,11 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
           {services.map((service, index) => (
             <div 
               key={index}
-              className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-md animate-fade-in"
+              className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-md"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className={`${service.iconBg} ${service.iconColor} rounded-full p-3 w-14 h-14 flex items-center justify-center mb-4`}>
@@ -95,7 +95,7 @@ const ServicesSection = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-8">
           <Button 
             variant="gradient" 
             className="rounded-full"
