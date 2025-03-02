@@ -6,35 +6,67 @@ import { Button } from "@/components/ui/button";
 const testimonials = [
   {
     id: 1,
-    name: "Priya Sharma",
-    university: "University of Toronto, Canada",
-    quote: "Career-Guide helped me secure admission to my dream university in Canada with a 50% scholarship. Their guidance throughout the visa process was invaluable.",
+    name: "Chaitanya",
+    university: "University of Wisconsin-Milwaukee, USA",
+    quote: "Career-Guide was instrumental in helping me secure admission to UW-Milwaukee. Their counselors provided detailed insights about the application process and helped me prepare a strong SOP that highlighted my academic strengths.",
     rating: 5,
     course: "Masters in Computer Science"
   },
   {
     id: 2,
-    name: "Rahul Patel",
-    university: "King's College London, UK",
-    quote: "The team at Career-Guide provided exceptional support from university selection to visa approval. Their personalized approach made my study abroad journey smooth.",
+    name: "Poojita",
+    university: "University of Wisconsin-Milwaukee, USA",
+    quote: "Thanks to Career-Guide, my dream of studying in the US became a reality. They guided me through every step of the application process, from university selection to visa interview preparation. I couldn't have done it without them!",
     rating: 5,
-    course: "MBA"
+    course: "Masters in Data Analytics"
   },
   {
     id: 3,
-    name: "Ananya Reddy",
-    university: "University of Melbourne, Australia",
-    quote: "I'm grateful to Career-Guide for their expert guidance. They helped me navigate through the complex admission and visa processes effortlessly.",
+    name: "Praneeth",
+    university: "New Jersey Institute of Technology, USA",
+    quote: "Career-Guide's counselors have in-depth knowledge about US universities and their requirements. They helped me identify NJIT as the perfect match for my academic goals and guided me through the entire application process.",
     rating: 5,
-    course: "Masters in Data Science"
+    course: "Masters in Information Systems"
   },
   {
     id: 4,
-    name: "Vikram Singh",
-    university: "University of British Columbia, Canada",
-    quote: "Career-Guide exceeded my expectations. Their attention to detail and commitment to my success helped me achieve my goal of studying in Canada.",
+    name: "Geeta",
+    university: "University of Bridgeport, USA",
+    quote: "When I approached Career-Guide, I was confused about which university to apply to. Their counselors assessed my profile and suggested UB, which turned out to be perfect for my career aspirations. Their visa guidance was exceptionally helpful.",
     rating: 5,
-    course: "Masters in Engineering"
+    course: "Masters in Business Administration"
+  },
+  {
+    id: 5,
+    name: "Harsha",
+    university: "Clark University, USA",
+    quote: "Career-Guide made my US education dream possible. From selecting the right program at Clark University to helping with scholarship applications, their team was supportive throughout my journey.",
+    rating: 5,
+    course: "Masters in Finance"
+  },
+  {
+    id: 6,
+    name: "Kumar",
+    university: "Clark University, USA",
+    quote: "I'm deeply grateful to Career-Guide for their expert guidance. They helped me secure a partial scholarship at Clark University and made the visa process incredibly smooth. Their follow-up even after I reached the US was truly appreciated.",
+    rating: 5,
+    course: "Masters in Information Technology"
+  },
+  {
+    id: 7,
+    name: "Vijay",
+    university: "Gannon University, USA",
+    quote: "As a first-generation international student, I had countless questions about studying in the US. Career-Guide patiently addressed all my concerns and guided me through each step. Their expertise made a complicated process feel manageable.",
+    rating: 5,
+    course: "Masters in Engineering Management"
+  },
+  {
+    id: 8,
+    name: "Shaik Javeed",
+    university: "BPP University, UK",
+    quote: "Career-Guide's expertise in UK admissions was evident from our first consultation. They helped me navigate the complex UK visa process and provided valuable insights about life in London. I'm now happily studying at BPP University thanks to their guidance.",
+    rating: 5,
+    course: "Masters in International Business"
   }
 ];
 
