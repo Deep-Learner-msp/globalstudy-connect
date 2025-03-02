@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { ArrowRight, X, TrendingUp, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -8,7 +9,7 @@ const countries = [
   {
     id: "usa",
     name: "USA",
-    image: "/lovable-uploads/8c78a54e-7879-4627-b1a8-be65693cbfcc.png",
+    image: "/lovable-uploads/d5a6827b-87f6-48c4-aca6-be82e5fecc24.png",
     description: "World-renowned universities with cutting-edge research facilities and diverse campus life.",
     universities: ["St. Francis College", "Cumberland University", "Golden Gate University", "Adelphi University", "Faulkner University"],
     jobMarket: "Strong job market in tech, healthcare, finance, and engineering sectors with high demand for skilled professionals.",
@@ -24,7 +25,7 @@ const countries = [
   {
     id: "canada",
     name: "Canada",
-    image: "/lovable-uploads/109cdf3f-7fb5-4bff-8eed-40eea18e3013.png",
+    image: "/lovable-uploads/01a99961-0642-4a38-9342-2211ccf00f42.png",
     description: "High-quality education with post-graduation work permits and pathways to permanent residency.",
     universities: ["University of Toronto", "McGill University", "University of British Columbia", "University of Alberta", "McMaster University"],
     jobMarket: "Growing opportunities in tech, natural resources, healthcare, and finance with excellent prospects for international graduates.",
@@ -40,7 +41,7 @@ const countries = [
   {
     id: "uk",
     name: "UK",
-    image: "/lovable-uploads/b1524c5f-d01e-4f22-b92f-a91d00c20da6.png",
+    image: "/lovable-uploads/1a35d71c-49c4-4a67-95ed-1a976bad1685.png",
     description: "Traditional education excellence with shorter programs and rich cultural experiences.",
     universities: ["Northumbria University", "Coventry University", "Ravensbourne University", "University of Roehampton", "Kings College London"],
     jobMarket: "Opportunities in finance, tech, creative industries, and healthcare with growing demand for international graduates.",
