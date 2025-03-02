@@ -72,10 +72,25 @@
 .no-scrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+/* Added smooth scrolling */
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+/* Added for testimonial snap scrolling */
+.snap-x {
+  scroll-snap-type: x mandatory;
+}
+
+.snap-center {
+  scroll-snap-align: center;
 }
 
 /* Logo styling */

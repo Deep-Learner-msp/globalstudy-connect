@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -74,21 +74,39 @@ const SuccessStoriesSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
   const [startX, setStartX] = useState(0);
+  const [touchStartTime, setTouchStartTime] = useState(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
   
   const handlePrev = () => {
     setActiveIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
+    scrollToTestimonial(activeIndex === 0 ? testimonials.length - 1 : activeIndex - 1);
   };
   
   const handleNext = () => {
     setActiveIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
+    scrollToTestimonial(activeIndex === testimonials.length - 1 ? 0 : activeIndex + 1);
   };
   
-  const handleTouchStart = (e) => {
+  const scrollToTestimonial = (index: number) => {
+    if (scrollContainerRef.current) {
+      const testimonialElements = scrollContainerRef.current.querySelectorAll('.testimonial-card');
+      if (testimonialElements[index]) {
+        testimonialElements[index].scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'center'
+        });
+      }
+    }
+  };
+  
+  const handleTouchStart = (e: React.TouchEvent) => {
     setIsScrolling(true);
     setStartX(e.touches[0].clientX);
+    setTouchStartTime(Date.now());
   };
   
-  const handleTouchMove = (e) => {
+  const handleTouchMove = (e: React.TouchEvent) => {
     if (!isScrolling) return;
     
     const currentX = e.touches[0].clientX;
@@ -107,6 +125,15 @@ const SuccessStoriesSection = () => {
     setIsScrolling(false);
   };
 
+  // Auto scroll effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNext();
+    }, 8000); // Auto slide every 8 seconds
+    
+    return () => clearInterval(interval);
+  }, [activeIndex]);
+
   return (
     <section id="success-stories" className="py-16 md:py-24 bg-gray-50">
       <div className="section-container">
@@ -121,9 +148,35 @@ const SuccessStoriesSection = () => {
         </div>
 
         <div className="mt-12 relative">
-          {/* Mobile-friendly testimonial slider */}
+          {/* Desktop Slider Controls */}
+          <div className="absolute top-1/2 -left-4 -translate-y-1/2 z-10 hidden md:block">
+            <Button 
+              variant="outline" 
+              size="icon" 
+              className="rounded-full shadow-md bg-white hover:bg-brand-blue hover:text-white"
+              onClick={handlePrev}
+              aria-label="Previous testimonial"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </Button>
+          </div>
+          
+          <div className="absolute top-1/2 -right-4 -translate-y-1/2 z-10 hidden md:block">
+            <Button 
+              variant="outline" 
+              size="icon" 
+              className="rounded-full shadow-md bg-white hover:bg-brand-blue hover:text-white"
+              onClick={handleNext}
+              aria-label="Next testimonial"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </Button>
+          </div>
+        
+          {/* Mobile & Desktop Testimonial Slider */}
           <div 
-            className="flex overflow-x-auto pb-6 px-4 md:px-0 no-scrollbar gap-4 md:gap-6"
+            ref={scrollContainerRef}
+            className="flex overflow-x-auto pb-6 px-4 md:px-8 gap-4 md:gap-6 scroll-smooth snap-x snap-mandatory no-scrollbar"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
@@ -131,7 +184,9 @@ const SuccessStoriesSection = () => {
             {testimonials.map((testimonial, index) => (
               <div 
                 key={testimonial.id}
-                className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 p-6 bg-white rounded-xl shadow-sm border border-gray-100 transition-all duration-300"
+                className={`testimonial-card flex-shrink-0 w-full md:w-1/2 lg:w-1/3 p-6 bg-white rounded-xl shadow-sm border border-gray-100 transition-all duration-300 snap-center ${
+                  activeIndex === index ? 'ring-2 ring-brand-blue/30' : ''
+                }`}
               >
                 <div className="flex flex-col mb-4">
                   <div>
@@ -152,38 +207,43 @@ const SuccessStoriesSection = () => {
             ))}
           </div>
           
-          {/* Navigation buttons for larger screens */}
-          <div className="hidden md:flex justify-center mt-8 space-x-4">
+          {/* Mobile Slider Controls */}
+          <div className="flex justify-center mt-6 md:hidden">
             <Button 
               variant="outline" 
               size="icon" 
-              className="rounded-full"
+              className="rounded-full mr-3 shadow-sm bg-white hover:bg-brand-blue hover:text-white"
               onClick={handlePrev}
               aria-label="Previous testimonial"
             >
-              <ChevronLeft className="h-5 w-5" />
+              <ChevronLeft className="h-4 w-4" />
             </Button>
-            {testimonials.map((_, index) => (
-              <Button 
-                key={index}
-                variant={activeIndex === index ? "default" : "outline"}
-                size="sm"
-                className="rounded-full w-10 h-10 p-0"
-                onClick={() => setActiveIndex(index)}
-                aria-label={`Go to testimonial ${index + 1}`}
-              >
-                <span className="text-base font-medium">{index + 1}</span>
-              </Button>
-            ))}
             <Button 
               variant="outline" 
               size="icon" 
-              className="rounded-full"
+              className="rounded-full shadow-sm bg-white hover:bg-brand-blue hover:text-white"
               onClick={handleNext}
               aria-label="Next testimonial"
             >
-              <ChevronRight className="h-5 w-5" />
+              <ChevronRight className="h-4 w-4" />
             </Button>
+          </div>
+          
+          {/* Pagination dots for mobile and desktop */}
+          <div className="flex justify-center mt-6 space-x-2">
+            {testimonials.map((_, index) => (
+              <button 
+                key={index}
+                className={`h-2 rounded-full transition-all ${
+                  activeIndex === index ? 'w-6 bg-brand-blue' : 'w-2 bg-gray-300'
+                }`}
+                onClick={() => {
+                  setActiveIndex(index);
+                  scrollToTestimonial(index);
+                }}
+                aria-label={`Go to testimonial ${index + 1}`}
+              ></button>
+            ))}
           </div>
         </div>
       </div>
