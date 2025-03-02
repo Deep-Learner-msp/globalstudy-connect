@@ -1,9 +1,10 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const ContactSection = () => {
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -20,6 +21,10 @@ const ContactSection = () => {
     }));
   };
 
+  const handleConsultation = () => {
+    window.open(`https://api.whatsapp.com/send/?phone=919392206641&text=I'm interested in a consultation for studying abroad&type=phone_number&app_absent=0`, '_blank');
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // In a real application, you would send this data to your backend
@@ -32,8 +37,22 @@ const ContactSection = () => {
       country: "",
       message: "",
     });
-    // Show success message
-    alert("Thank you for your inquiry! We will contact you soon.");
+    
+    // Show success toast
+    toast({
+      title: "Query Submitted Successfully!",
+      description: "We'll get back to you soon. For faster response, click 'Get Consultation'.",
+      action: (
+        <Button 
+          variant="default" 
+          size="sm" 
+          onClick={handleConsultation}
+          className="bg-brand-blue hover:bg-brand-blue/90 text-white"
+        >
+          Get Consultation
+        </Button>
+      ),
+    });
   };
 
   return (
