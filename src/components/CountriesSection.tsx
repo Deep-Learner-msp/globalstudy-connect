@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { ArrowRight, X, TrendingUp, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -56,7 +57,7 @@ const countries = [
   {
     id: "australia",
     name: "Australia",
-    image: "https://images.unsplash.com/photo-1624138784614-87fd1b6528f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2233&q=80",
+    image: "https://images.unsplash.com/photo-1501286353178-1ec871214838?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     description: "Innovative education approach with strong industry connections and superb quality of life.",
     universities: ["University of Melbourne", "University of Sydney", "Australian National University", "University of Queensland", "Monash University"],
     jobMarket: "Strong demand in healthcare, IT, engineering, and education with favorable post-study work options.",
@@ -72,7 +73,7 @@ const countries = [
   {
     id: "germany",
     name: "Germany",
-    image: "https://images.unsplash.com/photo-1599946347371-68eb71b16afc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    image: "https://images.unsplash.com/photo-1469041797191-50ace28483c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     description: "Tuition-free education at public universities with strong focus on research and engineering.",
     universities: ["Technical University of Munich", "Ludwig Maximilian University", "Heidelberg University", "Humboldt University of Berlin", "RWTH Aachen University"],
     jobMarket: "Excellent opportunities in engineering, automotive, manufacturing, and tech sectors with high demand for skilled professionals.",
@@ -88,7 +89,7 @@ const countries = [
   {
     id: "france",
     name: "France",
-    image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80",
+    image: "https://images.unsplash.com/photo-1438565434616-3ef039228b15?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     description: "Excellence in arts, sciences, and business with affordable tuition fees in a culturally rich setting.",
     universities: ["Sorbonne University", "École Polytechnique", "École Normale Supérieure", "Sciences Po", "HEC Paris"],
     jobMarket: "Opportunities in fashion, luxury goods, aerospace, and tourism with growing tech and startup scenes.",
@@ -104,7 +105,7 @@ const countries = [
   {
     id: "ireland",
     name: "Ireland",
-    image: "https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
+    image: "https://images.unsplash.com/photo-1466721591366-2d5fba72006d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     description: "English-speaking country with a strong education system and post-study work opportunities.",
     universities: ["Trinity College Dublin", "University College Dublin", "Dublin City University", "University of Galway", "University of Limerick"],
     jobMarket: "Strong demand in tech, pharmaceuticals, finance, and customer service with many multinational companies.",
@@ -120,7 +121,7 @@ const countries = [
   {
     id: "italy",
     name: "Italy",
-    image: "https://images.unsplash.com/photo-1604580864964-0462f5d5b1a8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    image: "https://images.unsplash.com/photo-1517022812141-23620dba5c23?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     description: "Historic education tradition with strengths in arts, design, architecture, and gastronomy.",
     universities: ["University of Bologna", "Sapienza University of Rome", "University of Padua", "Politecnico di Milano", "University of Milan"],
     jobMarket: "Opportunities in fashion, design, tourism, and manufacturing with regional variations in job availability.",
