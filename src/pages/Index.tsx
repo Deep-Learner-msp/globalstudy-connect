@@ -9,6 +9,7 @@ import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+import AssociatedUniversitiesSection from "@/components/AssociatedUniversitiesSection";
 
 const Index = () => {
   // Smooth scroll for anchor links
@@ -46,6 +47,7 @@ const Index = () => {
         <HeroSection />
         <CountriesSection />
         <ServicesSection />
+        <AssociatedUniversitiesSection />
         <AboutSection />
         <SuccessStoriesSection />
         <CTASection />
