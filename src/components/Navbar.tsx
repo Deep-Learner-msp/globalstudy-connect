@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import Logo from "./Logo";
+
 const navLinks = [{
   name: "Home",
   href: "#"
@@ -23,12 +25,15 @@ const navLinks = [{
   name: "Contact",
   href: "#contact"
 }];
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  
   const handleConsultation = () => {
     window.open(`https://api.whatsapp.com/send/?phone=919392206641&text=I'm interested in a consultation for studying abroad&type=phone_number&app_absent=0`, '_blank');
   };
+  
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 10) {
@@ -42,17 +47,12 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  
   return <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? "bg-white/90 backdrop-blur-sm shadow-sm py-3" : "bg-transparent py-4"}`}>
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center">
-          <div className="w-10 h-10 rounded-full bg-brand-blue/10 flex items-center justify-center mr-2">
-            <img alt="Career-Guide Logo" className="w-7 h-7 object-contain" src="/lovable-uploads/cc18855d-2e45-4f7a-bf21-653f485a3406.jpg" />
-          </div>
-          <div className="flex flex-col justify-center">
-            <span className="font-bold text-xl text-gray-900">Career-Guide</span>
-            <span className="text-xs text-gray-500 -mt-1">Overseas Consultants</span>
-          </div>
+          <Logo />
         </a>
 
         {/* Desktop Navigation */}
@@ -99,4 +99,5 @@ const Navbar = () => {
         </div>}
     </header>;
 };
+
 export default Navbar;
