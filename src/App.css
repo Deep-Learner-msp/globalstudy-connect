@@ -1,3 +1,4 @@
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -39,4 +40,23 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* Fix for testimonial numbers visibility on mobile */
+@media (max-width: 640px) {
+  #success-stories .rounded-full span {
+    font-size: 1rem;
+    font-weight: 600;
+    color: inherit;
+  }
+}
+
+/* Remove scrollbar but keep functionality */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }

@@ -8,7 +8,6 @@ const testimonials = [
     id: 1,
     name: "Priya Sharma",
     university: "University of Toronto, Canada",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
     quote: "Career-Guide helped me secure admission to my dream university in Canada with a 50% scholarship. Their guidance throughout the visa process was invaluable.",
     rating: 5,
     course: "Masters in Computer Science"
@@ -17,7 +16,6 @@ const testimonials = [
     id: 2,
     name: "Rahul Patel",
     university: "King's College London, UK",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
     quote: "The team at Career-Guide provided exceptional support from university selection to visa approval. Their personalized approach made my study abroad journey smooth.",
     rating: 5,
     course: "MBA"
@@ -26,7 +24,6 @@ const testimonials = [
     id: 3,
     name: "Ananya Reddy",
     university: "University of Melbourne, Australia",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     quote: "I'm grateful to Career-Guide for their expert guidance. They helped me navigate through the complex admission and visa processes effortlessly.",
     rating: 5,
     course: "Masters in Data Science"
@@ -35,7 +32,6 @@ const testimonials = [
     id: 4,
     name: "Vikram Singh",
     university: "University of British Columbia, Canada",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
     quote: "Career-Guide exceeded my expectations. Their attention to detail and commitment to my success helped me achieve my goal of studying in Canada.",
     rating: 5,
     course: "Masters in Engineering"
@@ -105,12 +101,9 @@ const SuccessStoriesSection = () => {
                 key={testimonial.id}
                 className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 p-6 bg-white rounded-xl shadow-sm border border-gray-100 transition-all duration-300"
               >
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 rounded-full overflow-hidden mr-4">
-                    <img src={testimonial.image} alt={testimonial.name} className="w-full h-full object-cover" />
-                  </div>
+                <div className="flex flex-col mb-4">
                   <div>
-                    <h3 className="font-semibold">{testimonial.name}</h3>
+                    <h3 className="font-semibold text-lg">{testimonial.name}</h3>
                     <p className="text-sm text-gray-600">{testimonial.course}</p>
                     <p className="text-xs text-gray-500">{testimonial.university}</p>
                   </div>
@@ -134,6 +127,7 @@ const SuccessStoriesSection = () => {
               size="icon" 
               className="rounded-full"
               onClick={handlePrev}
+              aria-label="Previous testimonial"
             >
               <ChevronLeft className="h-5 w-5" />
             </Button>
@@ -144,8 +138,9 @@ const SuccessStoriesSection = () => {
                 size="sm"
                 className="rounded-full w-10 h-10 p-0"
                 onClick={() => setActiveIndex(index)}
+                aria-label={`Go to testimonial ${index + 1}`}
               >
-                {index + 1}
+                <span className="text-base font-medium">{index + 1}</span>
               </Button>
             ))}
             <Button 
@@ -153,6 +148,7 @@ const SuccessStoriesSection = () => {
               size="icon" 
               className="rounded-full"
               onClick={handleNext}
+              aria-label="Next testimonial"
             >
               <ChevronRight className="h-5 w-5" />
             </Button>
