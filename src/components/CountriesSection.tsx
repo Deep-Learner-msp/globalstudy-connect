@@ -27,7 +27,6 @@ const countries = [
     name: "Canada",
     image: "/lovable-uploads/01a99961-0642-4a38-9342-2211ccf00f42.png",
     description: "High-quality education with post-graduation work permits and pathways to permanent residency.",
-    universities: ["University of Toronto", "McGill University", "University of British Columbia", "University of Alberta", "McMaster University"],
     jobMarket: "Growing opportunities in tech, natural resources, healthcare, and finance with excellent prospects for international graduates.",
     avgSalary: "Average annual salary of CAD $60,000 - $90,000 with strong benefits and work-life balance.",
     salaryData: [
@@ -59,7 +58,6 @@ const countries = [
     name: "Australia",
     image: "https://images.unsplash.com/photo-1624138784614-87fd1b6528f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2233&q=80",
     description: "Innovative education approach with strong industry connections and superb quality of life.",
-    universities: ["University of Melbourne", "University of Sydney", "Australian National University", "University of Queensland", "Monash University"],
     jobMarket: "Strong demand in healthcare, IT, engineering, and education with favorable post-study work options.",
     avgSalary: "Average annual salary of AUD $65,000 - $95,000 with excellent quality of life factors.",
     salaryData: [
@@ -75,7 +73,6 @@ const countries = [
     name: "Germany",
     image: "https://images.unsplash.com/photo-1599946347371-68eb71b16afc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     description: "Tuition-free education at public universities with strong focus on research and engineering.",
-    universities: ["Technical University of Munich", "Ludwig Maximilian University", "Heidelberg University", "Humboldt University of Berlin", "RWTH Aachen University"],
     jobMarket: "Excellent opportunities in engineering, automotive, manufacturing, and tech sectors with high demand for skilled professionals.",
     avgSalary: "Average annual salary of €45,000 - €70,000 with strong social benefits and job security.",
     salaryData: [
@@ -91,7 +88,6 @@ const countries = [
     name: "France",
     image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80",
     description: "Excellence in arts, sciences, and business with affordable tuition fees in a culturally rich setting.",
-    universities: ["Sorbonne University", "École Polytechnique", "École Normale Supérieure", "Sciences Po", "HEC Paris"],
     jobMarket: "Opportunities in fashion, luxury goods, aerospace, and tourism with growing tech and startup scenes.",
     avgSalary: "Average annual salary of €35,000 - €60,000 with excellent social benefits and quality of life.",
     salaryData: [
@@ -107,7 +103,6 @@ const countries = [
     name: "Ireland",
     image: "https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
     description: "English-speaking country with a strong education system and post-study work opportunities.",
-    universities: ["Trinity College Dublin", "University College Dublin", "Dublin City University", "University of Galway", "University of Limerick"],
     jobMarket: "Strong demand in tech, pharmaceuticals, finance, and customer service with many multinational companies.",
     avgSalary: "Average annual salary of €40,000 - €70,000 with good quality of life and work opportunities.",
     salaryData: [
@@ -123,7 +118,6 @@ const countries = [
     name: "Italy",
     image: "https://images.unsplash.com/photo-1604580864964-0462f5d5b1a8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     description: "Historic education tradition with strengths in arts, design, architecture, and gastronomy.",
-    universities: ["University of Bologna", "Sapienza University of Rome", "University of Padua", "Politecnico di Milano", "University of Milan"],
     jobMarket: "Opportunities in fashion, design, tourism, and manufacturing with regional variations in job availability.",
     avgSalary: "Average annual salary of €30,000 - €50,000 with strong emphasis on work-life balance.",
     salaryData: [
@@ -155,6 +149,32 @@ const CountriesSection = () => {
   
   const handleConsultation = () => {
     window.open(`https://api.whatsapp.com/send/?phone=919392206641&text=I'm interested in learning more about studying in ${activeCountry.name}&type=phone_number&app_absent=0`, '_blank');
+  };
+
+  // Function to render university information based on country
+  const renderUniversityInfo = () => {
+    if (activeCountry.id === "usa" || activeCountry.id === "uk") {
+      return (
+        <div>
+          <h4 className="text-lg font-semibold mb-3">Top Universities:</h4>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            {activeCountry.universities?.map((university, index) => (
+              <li key={index} className="flex items-center">
+                <div className="h-2 w-2 rounded-full bg-brand-blue mr-2"></div>
+                <span>{university}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <h4 className="text-lg font-semibold mb-3">University Associations:</h4>
+          <p className="text-gray-600">Top university associations and scholarships are provided. Contact us for more details about specific institutions and funding opportunities.</p>
+        </div>
+      );
+    }
   };
 
   return (
@@ -206,17 +226,7 @@ const CountriesSection = () => {
               <h3 className="text-2xl md:text-3xl font-bold">{activeCountry.name}</h3>
               <p className="text-gray-600">{activeCountry.description}</p>
               
-              <div>
-                <h4 className="text-lg font-semibold mb-3">Top Universities:</h4>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {activeCountry.universities.map((university, index) => (
-                    <li key={index} className="flex items-center">
-                      <div className="h-2 w-2 rounded-full bg-brand-blue mr-2"></div>
-                      <span>{university}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              {renderUniversityInfo()}
               
               <div>
                 <h4 className="text-lg font-semibold mb-3">Job Market:</h4>
