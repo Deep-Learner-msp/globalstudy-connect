@@ -6,16 +6,16 @@ const countries = [
   {
     id: "usa",
     name: "USA",
-    image: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2289&q=80",
+    image: "/lovable-uploads/8c78a54e-7879-4627-b1a8-be65693cbfcc.png",
     description: "World-renowned universities with cutting-edge research facilities and diverse campus life.",
-    universities: ["Wisconsin Milwaukee", "New Jersey Institute of Technology", "University of Bridge Port", "Clark University", "Gannon University"],
+    universities: ["St. Francis College", "Cumberland University", "Golden Gate University", "Adelphi University", "Faulkner University"],
   },
   {
     id: "uk",
     name: "UK",
-    image: "https://images.unsplash.com/photo-1513026705753-bc3fffca8bf4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    image: "/lovable-uploads/b1524c5f-d01e-4f22-b92f-a91d00c20da6.png",
     description: "Traditional education excellence with shorter programs and rich cultural experiences.",
-    universities: ["University of Oxford", "University of Cambridge", "Imperial College London", "BPP University", "University of Edinburgh"],
+    universities: ["Northumbria University", "Coventry University", "Ravensbourne University", "University of Roehampton", "Kings College London"],
   },
   {
     id: "canada",

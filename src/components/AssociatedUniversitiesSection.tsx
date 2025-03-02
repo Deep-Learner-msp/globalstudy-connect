@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { GraduationCap, Building, MapPin, BookOpen, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,49 +8,49 @@ const universities = {
       name: "Northumbria University",
       location: "Newcastle upon Tyne, UK",
       programs: ["Business", "Engineering", "Computer Science", "Arts & Design"],
-      image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+      image: "/lovable-uploads/757b3d2c-c7d8-4418-acdd-218f670dc3f3.png"
     },
     {
       name: "Coventry University",
       location: "Coventry, UK",
       programs: ["Engineering", "Business", "Health Sciences", "Media"],
-      image: "https://images.unsplash.com/photo-1524230572899-a752b3835840?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+      image: "/lovable-uploads/2defd8e6-cb31-491b-8b76-a324d0ad0a6e.png"
     },
     {
       name: "Ravensbourne University London",
       location: "London, UK",
       programs: ["Digital Media", "Design", "Fashion", "Architecture"],
-      image: "https://images.unsplash.com/photo-1488972685288-c3fd157d7c7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+      image: "/lovable-uploads/9096699d-6d00-4af0-a48f-8417107ba755.png"
     },
     {
       name: "University of Roehampton",
       location: "London, UK",
       programs: ["Psychology", "Education", "Business", "Life Sciences"],
-      image: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+      image: "/lovable-uploads/d1de45b8-944d-4b75-b48b-744e9adc6474.png"
     },
     {
       name: "Kings College London",
       location: "London, UK",
       programs: ["Medicine", "Law", "Business", "Humanities"],
-      image: "https://images.unsplash.com/photo-1431576901776-e539bd916ba2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+      image: "/lovable-uploads/b1524c5f-d01e-4f22-b92f-a91d00c20da6.png"
     },
     {
       name: "Edinburgh University",
       location: "Edinburgh, UK",
       programs: ["Arts", "Medicine", "Science", "Engineering"],
-      image: "https://images.unsplash.com/photo-1524230572899-a752b3835840?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+      image: "/lovable-uploads/db1ccd30-7c99-4f30-974e-fad08183c6b5.png"
     },
     {
       name: "University of Chester",
       location: "Chester, UK",
       programs: ["Business", "Education", "Health", "Arts"],
-      image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+      image: "/lovable-uploads/2b587ba0-6004-43ae-b66c-a8f3371853b9.png"
     },
     {
       name: "Exeter University",
       location: "Exeter, UK",
       programs: ["Business", "Humanities", "Science", "Social Sciences"],
-      image: "https://images.unsplash.com/photo-1488972685288-c3fd157d7c7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+      image: "/lovable-uploads/acfe74b9-31f3-4712-b6c5-a7a4d2757a4c.png"
     },
   ],
   usa: [
@@ -60,7 +59,7 @@ const universities = {
       location: "Brooklyn, New York",
       degrees: ["MS in Computer Science", "MS in Information Tech", "MBA", "MS in Professional Accountancy"],
       features: ["Hybrid Format", "CPT & OPT Opportunities", "STEM Scholarships", "91% Employment Rate"],
-      image: "/lovable-uploads/409ec1e8-fbf4-44e5-943b-8c5a6571f35b.png"
+      image: "/lovable-uploads/8c78a54e-7879-4627-b1a8-be65693cbfcc.png"
     },
     {
       name: "Cumberland University",
@@ -74,7 +73,7 @@ const universities = {
       location: "San Francisco, California",
       degrees: ["Professional MS in Data Science", "Professional MS in IT Management", "Professional MS in Computer Science"],
       features: ["40% Exclusive Scholarship", "Founded in 1901", "68,000+ Alumni"],
-      image: "/lovable-uploads/d896f8c2-fcc6-48d1-bedd-0863399f211f.png"
+      image: "/lovable-uploads/be50bdc1-3dfc-4166-8be7-1a13475fefd3.png"
     },
     {
       name: "Adelphi University",
