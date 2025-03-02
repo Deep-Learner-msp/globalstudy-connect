@@ -3,6 +3,17 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Compass, GraduationCap, MapPin } from "lucide-react";
 
 const HeroSection = () => {
+  const handleConsultation = () => {
+    window.open(`https://api.whatsapp.com/send/?phone=919392206641&text=I'm interested in a consultation for studying abroad&type=phone_number&app_absent=0`, '_blank');
+  };
+  
+  const scrollToCountries = () => {
+    const countriesSection = document.getElementById('countries');
+    if (countriesSection) {
+      countriesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-24">
       <div className="absolute inset-0 hero-gradient -z-10"></div>
@@ -24,11 +35,21 @@ const HeroSection = () => {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              <Button variant="gradient" size="xl" className="group rounded-full">
+              <Button 
+                variant="gradient" 
+                size="xl" 
+                className="group rounded-full"
+                onClick={handleConsultation}
+              >
                 Get Free Consultation
                 <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" size="xl" className="rounded-full">
+              <Button 
+                variant="outline" 
+                size="xl" 
+                className="rounded-full"
+                onClick={scrollToCountries}
+              >
                 Explore Countries
               </Button>
             </div>

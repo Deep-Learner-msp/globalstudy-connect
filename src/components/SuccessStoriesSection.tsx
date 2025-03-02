@@ -1,6 +1,6 @@
 
-import { motion } from "framer-motion";
 import { Star } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
 
 const successStories = [
   {
@@ -54,6 +54,36 @@ const successStories = [
 ];
 
 const SuccessStoriesSection = () => {
+  const scrollContainer = useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setStartX(e.pageX - scrollContainer.current.offsetLeft);
+    setScrollLeft(scrollContainer.current.scrollLeft);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - scrollContainer.current.offsetLeft;
+    const walk = (x - startX) * 2; 
+    scrollContainer.current.scrollLeft = scrollLeft - walk;
+  };
+
+  useEffect(() => {
+    document.addEventListener('mouseup', handleMouseUp);
+    return () => {
+      document.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, []);
+
   return (
     <section id="success-stories" className="py-16 md:py-24 bg-gray-50">
       <div className="section-container">
@@ -67,31 +97,45 @@ const SuccessStoriesSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-          {successStories.map((story, index) => (
-            <div 
-              key={index} 
-              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
-            >
-              <div className="flex items-center mb-4">
-                <div className="bg-gradient-to-r from-brand-blue to-brand-orange text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg">
-                  {story.name.charAt(0)}
-                </div>
-                <div className="ml-3">
-                  <h3 className="font-semibold text-lg">{story.name}</h3>
-                  <div className="flex items-center text-sm text-gray-600">
-                    <span>{story.university}, {story.country}</span>
+        <div className="mt-8 relative">
+          <div 
+            className="flex overflow-x-auto pb-6 pt-2 hide-scrollbar cursor-grab"
+            ref={scrollContainer}
+            onMouseDown={handleMouseDown}
+            onMouseLeave={handleMouseUp}
+            onMouseUp={handleMouseUp}
+            onMouseMove={handleMouseMove}
+          >
+            <div className="flex space-x-6 px-4 min-w-full">
+              {successStories.map((story, index) => (
+                <div 
+                  key={index} 
+                  className="bg-white rounded-xl p-6 shadow-lg min-w-[300px] md:min-w-[350px] flex-shrink-0 transition-all duration-300 hover:shadow-xl"
+                >
+                  <div className="flex items-center mb-4">
+                    <div className="bg-gradient-to-r from-brand-blue to-brand-orange text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg">
+                      {story.name.charAt(0)}
+                    </div>
+                    <div className="ml-3">
+                      <h3 className="font-semibold text-lg">{story.name}</h3>
+                      <div className="flex items-center text-sm text-gray-600">
+                        <span>{story.university}, {story.country}</span>
+                      </div>
+                    </div>
                   </div>
+                  <div className="flex mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={16} className="text-yellow-400 fill-yellow-400" />
+                    ))}
+                  </div>
+                  <p className="text-gray-700 italic">{story.testimonial}</p>
                 </div>
-              </div>
-              <div className="flex mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={16} className="text-yellow-400 fill-yellow-400" />
-                ))}
-              </div>
-              <p className="text-gray-700 italic">{story.testimonial}</p>
+              ))}
             </div>
-          ))}
+          </div>
+          <div className="flex justify-center mt-6 space-x-2">
+            <span className="text-sm text-muted-foreground">← Swipe to see more stories →</span>
+          </div>
         </div>
       </div>
     </section>

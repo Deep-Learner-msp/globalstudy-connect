@@ -48,6 +48,17 @@ const services = [
 ];
 
 const ServicesSection = () => {
+  const handleLearnMore = (serviceName) => {
+    window.open(`https://api.whatsapp.com/send/?phone=919392206641&text=I'm interested in learning more about your ${serviceName} service&type=phone_number&app_absent=0`, '_blank');
+  };
+  
+  const handleViewAllServices = () => {
+    const servicesSection = document.getElementById('services');
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="services" className="py-16 md:py-24">
       <div className="section-container">
@@ -73,18 +84,25 @@ const ServicesSection = () => {
               </div>
               <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
               <p className="text-gray-600 mb-4">{service.description}</p>
-              <a href="#" className="inline-flex items-center text-brand-blue hover:text-brand-blue/80 font-medium text-sm">
+              <button 
+                onClick={() => handleLearnMore(service.title)}
+                className="inline-flex items-center text-brand-blue hover:text-brand-blue/80 font-medium text-sm"
+              >
                 Learn More
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
-              </a>
+              </button>
             </div>
           ))}
         </div>
 
         <div className="text-center mt-12">
-          <Button variant="gradient" className="rounded-full">
+          <Button 
+            variant="gradient" 
+            className="rounded-full"
+            onClick={handleViewAllServices}
+          >
             View All Services
           </Button>
         </div>
