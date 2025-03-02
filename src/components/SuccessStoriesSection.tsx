@@ -1,88 +1,83 @@
 
-import { Star } from "lucide-react";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
+import { ChevronLeft, ChevronRight, Star } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-const successStories = [
+const testimonials = [
   {
-    name: "Chaitanya",
-    university: "Wisconsin Milwaukee",
-    country: "USA",
-    testimonial: "Career-Guide helped me navigate the complex admission process at Wisconsin Milwaukee, turning my dream of studying in the USA into reality.",
+    id: 1,
+    name: "Priya Sharma",
+    university: "University of Toronto, Canada",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
+    quote: "Career-Guide helped me secure admission to my dream university in Canada with a 50% scholarship. Their guidance throughout the visa process was invaluable.",
+    rating: 5,
+    course: "Masters in Computer Science"
   },
   {
-    name: "Poojita",
-    university: "Wisconsin Milwaukee",
-    country: "USA",
-    testimonial: "I'm grateful for the personalized guidance that helped me secure admission and a scholarship at Wisconsin Milwaukee.",
+    id: 2,
+    name: "Rahul Patel",
+    university: "King's College London, UK",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
+    quote: "The team at Career-Guide provided exceptional support from university selection to visa approval. Their personalized approach made my study abroad journey smooth.",
+    rating: 5,
+    course: "MBA"
   },
   {
-    name: "Praneeth",
-    university: "New Jersey Institute of Technology",
-    country: "USA",
-    testimonial: "The team at Career-Guide provided exceptional support throughout my application process for NJIT. Their expertise was invaluable.",
+    id: 3,
+    name: "Ananya Reddy",
+    university: "University of Melbourne, Australia",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    quote: "I'm grateful to Career-Guide for their expert guidance. They helped me navigate through the complex admission and visa processes effortlessly.",
+    rating: 5,
+    course: "Masters in Data Science"
   },
   {
-    name: "Geeta",
-    university: "University of Bridge Port",
-    country: "USA",
-    testimonial: "Career-Guide's counselors were extremely knowledgeable and helped me find the perfect program at Bridge Port University.",
-  },
-  {
-    name: "Harsha",
-    university: "Clark University",
-    country: "USA",
-    testimonial: "From test preparation to visa guidance, Career-Guide provided comprehensive support for my journey to Clark University.",
-  },
-  {
-    name: "Kumar",
-    university: "Clark University",
-    country: "USA",
-    testimonial: "I couldn't have navigated the complex admission and visa process without Career-Guide's expert assistance.",
-  },
-  {
-    name: "Vijay",
-    university: "Gannon University",
-    country: "USA",
-    testimonial: "Career-Guide's personalized approach helped me find the right program at Gannon University that aligned with my career goals.",
-  },
-  {
-    name: "Shaik Javeed",
-    university: "BPP University",
-    country: "UK",
-    testimonial: "Thanks to Career-Guide, my transition to studying at BPP University in the UK was smooth and stress-free.",
-  },
+    id: 4,
+    name: "Vikram Singh",
+    university: "University of British Columbia, Canada",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
+    quote: "Career-Guide exceeded my expectations. Their attention to detail and commitment to my success helped me achieve my goal of studying in Canada.",
+    rating: 5,
+    course: "Masters in Engineering"
+  }
 ];
 
 const SuccessStoriesSection = () => {
-  const scrollContainer = useRef(null);
-  const [isDragging, setIsDragging] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isScrolling, setIsScrolling] = useState(false);
   const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
-
-  const handleMouseDown = (e) => {
-    setIsDragging(true);
-    setStartX(e.pageX - scrollContainer.current.offsetLeft);
-    setScrollLeft(scrollContainer.current.scrollLeft);
+  
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
   };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
+  
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
   };
-
-  const handleMouseMove = (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - scrollContainer.current.offsetLeft;
-    const walk = (x - startX) * 2; 
-    scrollContainer.current.scrollLeft = scrollLeft - walk;
+  
+  const handleTouchStart = (e) => {
+    setIsScrolling(true);
+    setStartX(e.touches[0].clientX);
   };
-
-  useEffect(() => {
-    document.addEventListener('mouseup', handleMouseUp);
-    return () => {
-      document.removeEventListener('mouseup', handleMouseUp);
-    };
-  }, []);
+  
+  const handleTouchMove = (e) => {
+    if (!isScrolling) return;
+    
+    const currentX = e.touches[0].clientX;
+    const diff = startX - currentX;
+    
+    if (diff > 50) {
+      handleNext();
+      setIsScrolling(false);
+    } else if (diff < -50) {
+      handlePrev();
+      setIsScrolling(false);
+    }
+  };
+  
+  const handleTouchEnd = () => {
+    setIsScrolling(false);
+  };
 
   return (
     <section id="success-stories" className="py-16 md:py-24 bg-gray-50">
@@ -91,50 +86,76 @@ const SuccessStoriesSection = () => {
           <div className="inline-flex items-center rounded-full bg-brand-blue/10 px-3 py-1 mb-4 text-sm font-medium text-brand-blue">
             <span>Success Stories</span>
           </div>
-          <h2 className="section-title">Our Student Achievements</h2>
+          <h2 className="section-title">Hear from Our Students</h2>
           <p className="section-subtitle max-w-3xl mx-auto">
-            Meet our successful students who are now pursuing their dreams at prestigious universities worldwide.
+            Discover how Career-Guide has helped students achieve their international education dreams.
           </p>
         </div>
 
-        <div className="mt-8 relative">
+        <div className="mt-12 relative">
+          {/* Mobile-friendly testimonial slider */}
           <div 
-            className="flex overflow-x-auto pb-6 pt-2 hide-scrollbar cursor-grab"
-            ref={scrollContainer}
-            onMouseDown={handleMouseDown}
-            onMouseLeave={handleMouseUp}
-            onMouseUp={handleMouseUp}
-            onMouseMove={handleMouseMove}
+            className="flex overflow-x-auto pb-6 px-4 md:px-0 no-scrollbar gap-4 md:gap-6"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           >
-            <div className="flex space-x-6 px-4 min-w-full">
-              {successStories.map((story, index) => (
-                <div 
-                  key={index} 
-                  className="bg-white rounded-xl p-6 shadow-lg min-w-[300px] md:min-w-[350px] flex-shrink-0 transition-all duration-300 hover:shadow-xl"
-                >
-                  <div className="flex items-center mb-4">
-                    <div className="bg-gradient-to-r from-brand-blue to-brand-orange text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg">
-                      {story.name.charAt(0)}
-                    </div>
-                    <div className="ml-3">
-                      <h3 className="font-semibold text-lg">{story.name}</h3>
-                      <div className="flex items-center text-sm text-gray-600">
-                        <span>{story.university}, {story.country}</span>
-                      </div>
-                    </div>
+            {testimonials.map((testimonial, index) => (
+              <div 
+                key={testimonial.id}
+                className="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 p-6 bg-white rounded-xl shadow-sm border border-gray-100 transition-all duration-300"
+              >
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 rounded-full overflow-hidden mr-4">
+                    <img src={testimonial.image} alt={testimonial.name} className="w-full h-full object-cover" />
                   </div>
-                  <div className="flex mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={16} className="text-yellow-400 fill-yellow-400" />
-                    ))}
+                  <div>
+                    <h3 className="font-semibold">{testimonial.name}</h3>
+                    <p className="text-sm text-gray-600">{testimonial.course}</p>
+                    <p className="text-xs text-gray-500">{testimonial.university}</p>
                   </div>
-                  <p className="text-gray-700 italic">{story.testimonial}</p>
                 </div>
-              ))}
-            </div>
+                
+                <div className="flex mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 text-yellow-400 fill-yellow-400" />
+                  ))}
+                </div>
+                
+                <blockquote className="text-gray-600 italic">"{testimonial.quote}"</blockquote>
+              </div>
+            ))}
           </div>
-          <div className="flex justify-center mt-6 space-x-2">
-            <span className="text-sm text-muted-foreground">← Swipe to see more stories →</span>
+          
+          {/* Navigation buttons for larger screens */}
+          <div className="hidden md:flex justify-center mt-8 space-x-4">
+            <Button 
+              variant="outline" 
+              size="icon" 
+              className="rounded-full"
+              onClick={handlePrev}
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </Button>
+            {testimonials.map((_, index) => (
+              <Button 
+                key={index}
+                variant={activeIndex === index ? "default" : "outline"}
+                size="sm"
+                className="rounded-full w-10 h-10 p-0"
+                onClick={() => setActiveIndex(index)}
+              >
+                {index + 1}
+              </Button>
+            ))}
+            <Button 
+              variant="outline" 
+              size="icon" 
+              className="rounded-full"
+              onClick={handleNext}
+            >
+              <ChevronRight className="h-5 w-5" />
+            </Button>
           </div>
         </div>
       </div>

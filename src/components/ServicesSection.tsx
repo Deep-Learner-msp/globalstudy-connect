@@ -1,5 +1,5 @@
 
-import { BookOpen, FileText, GraduationCap, Briefcase, PenTool, Headphones } from "lucide-react";
+import { BookOpen, FileText, GraduationCap, Briefcase, PenTool, Headphones, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const services = [
@@ -89,9 +89,7 @@ const ServicesSection = () => {
                 className="inline-flex items-center text-brand-blue hover:text-brand-blue/80 font-medium text-sm"
               >
                 Learn More
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
+                <ArrowRight className="h-4 w-4 ml-1" />
               </button>
             </div>
           ))}

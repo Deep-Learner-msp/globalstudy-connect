@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, ArrowRight } from "lucide-react";
 
 const AboutSection = () => {
   const benefits = [
@@ -11,6 +11,10 @@ const AboutSection = () => {
     "Financial guidance and scholarship opportunities",
     "Pre-departure and post-arrival support",
   ];
+
+  const handleWhatsAppChat = () => {
+    window.open(`https://api.whatsapp.com/send/?phone=919392206641&text=I'd like to learn more about your overseas education services&type=phone_number&app_absent=0`, '_blank');
+  };
 
   return (
     <section id="about" className="py-16 md:py-24">
@@ -39,8 +43,13 @@ const AboutSection = () => {
               ))}
             </div>
             
-            <Button variant="gradient" className="rounded-full">
+            <Button 
+              variant="gradient" 
+              className="rounded-full"
+              onClick={handleWhatsAppChat}
+            >
               Learn More About Us
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
           

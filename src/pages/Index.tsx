@@ -40,6 +40,24 @@ const Index = () => {
     };
   }, []);
 
+  // Ensure proper mobile rendering order
+  useEffect(() => {
+    // Check if we need to reorder countries based on screen size
+    const handleResize = () => {
+      // This triggers a re-render when window size changes between mobile/desktop
+      // The actual logic happens in CountriesSection component
+      window.dispatchEvent(new Event('resize'));
+    };
+
+    window.addEventListener('resize', handleResize);
+    // Initial check
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />

@@ -101,6 +101,10 @@ const AssociatedUniversitiesSection = () => {
     setActiveCountry(country);
     setActiveUniversity(universities[country][0]);
   };
+  
+  const handleContactForUniversity = () => {
+    window.open(`https://api.whatsapp.com/send/?phone=919392206641&text=I'm interested in learning more about ${activeUniversity.name}&type=phone_number&app_absent=0`, '_blank');
+  };
 
   return (
     <section id="associated-universities" className="py-16 md:py-24">
@@ -231,8 +235,12 @@ const AssociatedUniversitiesSection = () => {
                     </>
                   )}
 
-                  <Button variant="gradient" className="rounded-full mt-2">
-                    Learn More About {activeUniversity.name}
+                  <Button 
+                    variant="gradient" 
+                    className="rounded-full mt-2"
+                    onClick={handleContactForUniversity}
+                  >
+                    Get More Information
                   </Button>
                 </div>
               </div>
