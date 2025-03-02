@@ -1,3 +1,4 @@
+
 import { Mail, MapPin, Phone } from "lucide-react";
 import Logo from "./Logo";
 
@@ -11,19 +12,19 @@ const Footer = () => {
           <p className="text-gray-600 mb-4">
             Your gateway to global education. Expert guidance for studying abroad.
           </p>
-          <div className="flex items-center mb-2">
+          <div className="flex items-start mb-2">
             <MapPin className="h-4 w-4 mr-2 text-gray-500" />
             <a href="https://maps.app.goo.gl/wqY6m4aRd7DVa42P8" target="_blank" rel="noopener noreferrer" className="hover:text-brand-blue transition-colors">
-              123 Education Street, Mumbai, India
+              HIG 35 KPHB Road No. 1, Jamma Majid near Manas PG Hostel
             </a>
           </div>
-          <div className="flex items-center mb-2">
+          <div className="flex items-start mb-2">
             <Phone className="h-4 w-4 mr-2 text-gray-500" />
-            <a href="tel:+919876543210" className="hover:text-brand-blue transition-colors">
-              +91 98765 43210
+            <a href="tel:+919392206641" className="hover:text-brand-blue transition-colors">
+              +91 9392206641
             </a>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-start">
             <Mail className="h-4 w-4 mr-2 text-gray-500" />
             <a href="mailto:info@career-guide.com" className="hover:text-brand-blue transition-colors">
               info@career-guide.com
