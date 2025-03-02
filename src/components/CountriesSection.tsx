@@ -6,14 +6,14 @@ const countries = [
   {
     id: "usa",
     name: "USA",
-    image: "/lovable-uploads/8c78a54e-7879-4627-b1a8-be65693cbfcc.png",
+    image: "/lovable-uploads/fb7216b2-12bf-4d46-a740-add2d42419fb.png", // St. Francis College
     description: "World-renowned universities with cutting-edge research facilities and diverse campus life.",
     universities: ["St. Francis College", "Cumberland University", "Golden Gate University", "Adelphi University", "Faulkner University"],
   },
   {
     id: "uk",
     name: "UK",
-    image: "/lovable-uploads/b1524c5f-d01e-4f22-b92f-a91d00c20da6.png",
+    image: "/lovable-uploads/e4347c45-8bf9-4122-b2b3-7bb74b252aa0.png", // Kings College London
     description: "Traditional education excellence with shorter programs and rich cultural experiences.",
     universities: ["Northumbria University", "Coventry University", "Ravensbourne University", "University of Roehampton", "Kings College London"],
   },

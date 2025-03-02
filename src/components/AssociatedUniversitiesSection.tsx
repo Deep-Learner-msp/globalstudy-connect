@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { GraduationCap, Building, MapPin, BookOpen, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -8,31 +9,31 @@ const universities = {
       name: "Northumbria University",
       location: "Newcastle upon Tyne, UK",
       programs: ["Business", "Engineering", "Computer Science", "Arts & Design"],
-      image: "/lovable-uploads/757b3d2c-c7d8-4418-acdd-218f670dc3f3.png"
+      image: "/lovable-uploads/eadc6468-af16-402a-a0eb-3280914d347a.png" // Northumbria.jpg
     },
     {
       name: "Coventry University",
       location: "Coventry, UK",
       programs: ["Engineering", "Business", "Health Sciences", "Media"],
-      image: "/lovable-uploads/2defd8e6-cb31-491b-8b76-a324d0ad0a6e.png"
+      image: "/lovable-uploads/bec9c8c0-f3e8-41c2-8ef0-f50600ff3bc0.png" // Coventry University.jpeg
     },
     {
       name: "Ravensbourne University London",
       location: "London, UK",
       programs: ["Digital Media", "Design", "Fashion", "Architecture"],
-      image: "/lovable-uploads/9096699d-6d00-4af0-a48f-8417107ba755.png"
+      image: "/lovable-uploads/7409d12f-8047-4f82-a830-74d137713377.png" // ravensbourne-college-01.jpg
     },
     {
       name: "University of Roehampton",
       location: "London, UK",
       programs: ["Psychology", "Education", "Business", "Life Sciences"],
-      image: "/lovable-uploads/d1de45b8-944d-4b75-b48b-744e9adc6474.png"
+      image: "/lovable-uploads/a37b9f1a-e713-44ae-b95e-f61e2e3f47bf.png" // roehamptons-campus-1.png
     },
     {
       name: "Kings College London",
       location: "London, UK",
       programs: ["Medicine", "Law", "Business", "Humanities"],
-      image: "/lovable-uploads/b1524c5f-d01e-4f22-b92f-a91d00c20da6.png"
+      image: "/lovable-uploads/e4347c45-8bf9-4122-b2b3-7bb74b252aa0.png" // Kings_college_Uk.jpeg
     },
     {
       name: "Edinburgh University",
@@ -59,35 +60,35 @@ const universities = {
       location: "Brooklyn, New York",
       degrees: ["MS in Computer Science", "MS in Information Tech", "MBA", "MS in Professional Accountancy"],
       features: ["Hybrid Format", "CPT & OPT Opportunities", "STEM Scholarships", "91% Employment Rate"],
-      image: "/lovable-uploads/8c78a54e-7879-4627-b1a8-be65693cbfcc.png"
+      image: "/lovable-uploads/fb7216b2-12bf-4d46-a740-add2d42419fb.png" // st_francis_US.jpg
     },
     {
       name: "Cumberland University",
       location: "Lebanon, Tennessee",
       degrees: ["MS in Information Technology Management", "MS in Engineering Management"],
       features: ["Best Regional Universities in the South", "Top Performers on Social Mobility", "OPT Eligible STEM Programs"],
-      image: "/lovable-uploads/8500b8b9-255d-47a9-85a6-2d8a6aeb5bb0.png"
+      image: "/lovable-uploads/936a85bb-d321-4f94-8458-110244a58ec8.png" // cumberland-university-in-lebanon-tennessee.jpg
     },
     {
       name: "Golden Gate University",
       location: "San Francisco, California",
       degrees: ["Professional MS in Data Science", "Professional MS in IT Management", "Professional MS in Computer Science"],
       features: ["40% Exclusive Scholarship", "Founded in 1901", "68,000+ Alumni"],
-      image: "/lovable-uploads/be50bdc1-3dfc-4166-8be7-1a13475fefd3.png"
+      image: "/lovable-uploads/09935e42-b794-442a-aafa-6403a3f7889f.png" // golden_gate_us.png
     },
     {
       name: "Adelphi University",
       location: "New York",
       degrees: ["MS Computer Science", "MS Supply Chain Management", "MS Business Analytics", "MS Health Informatics"],
       features: ["Up to 50% Scholarship", "OPT Eligible STEM Programs", "Proximity to New York City"],
-      image: "/lovable-uploads/7baf6795-943c-4502-82de-a12f7f1fa695.png"
+      image: "/lovable-uploads/da90581c-a026-4404-a30c-5dca22992cab.png" // Adelphi_homepage24-1220x686.jpg
     },
     {
       name: "Faulkner University",
       location: "Alabama & Atlanta",
       degrees: ["MS Management in Business Analytics", "MS Management in Information Technology", "MS Management in Data Science"],
       features: ["STEM Programs", "Average Class Size: 15", "Established in 1906"],
-      image: "/lovable-uploads/3e36fbed-9fa7-4bd2-a4fa-5bed56c2876a.png"
+      image: "/lovable-uploads/9534d944-c184-48cf-a582-ee9f4fba8020.png" // Faulkner_uni.jpg
     }
   ]
 };
