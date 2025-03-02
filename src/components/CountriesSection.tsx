@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { ArrowRight, X, TrendingUp, DollarSign } from "lucide-react";
 import { Button } from "@/components/ui/button";
